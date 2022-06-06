@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    paths-ignore:
+      - 'documents/**'
+      - 'docs/**'
+  workflow_dispatch:
+
+jobs:
+  unit-test:
+    runs-on: ubuntu-20.04
+    concurrency: ci-${{ github.ref }}
+    env:
+      working-directory: ./src
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 14.17.0
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.17.0
+    - name: Setup dependencies
+      working-directory: ${{env.working-directory}}
+      run: npm install
+    - name: Unit Test
+      working-directory: ${{env.working-directory}}
+      run: npm run test
