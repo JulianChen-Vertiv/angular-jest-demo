@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: [self-hosted, linux]
+  unit-test:
+    runs-on: ubuntu-20.04
     concurrency: ci-${{ github.ref }}
     env:
       working-directory: ./src
