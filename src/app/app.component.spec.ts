@@ -17,9 +17,6 @@ describe('AppComponent', () => {
         BrowserModule,
         AppRoutingModule
       ],
-      declarations: [
-        AppComponent
-      ],
       providers: [{provide: APP_BASE_HREF, useValue : '/' }]
     }).compileComponents();
   });
@@ -33,13 +30,15 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'angular-jest'`, () => {
-    expect(component.title).toEqual('angular-jest');
+  it(`should have as title 'Angular with Jest'`, () => {
+    expect(component.title).toEqual('Angular with Jest');
   });
 
-  it('should render title', () => {
+  it('should have two nav links', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('angular-jest app is running!');
+    expect(compiled.querySelectorAll('a')?.length).toBe(2);
+    expect(compiled.querySelectorAll('a')?.item(0).textContent).toBe('Dashboard');
+    expect(compiled.querySelectorAll('a')?.item(1).textContent).toBe('Heroes');
   });
 });
