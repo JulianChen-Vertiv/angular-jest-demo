@@ -6,6 +6,7 @@ module.exports = {
 	testPathIgnorePatterns: [
 		'<rootDir>/src/index.html',
 		'<rootDir>/src/main.ts',
+		'<rootDir>/src/test.ts',
 		'<rootDir>/src/polyfills.ts',
 		'<rootDir>/src/environments/*',
 	],
