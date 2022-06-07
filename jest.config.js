@@ -11,4 +11,11 @@ module.exports = {
 		'<rootDir>/src/polyfills.ts',
 		'<rootDir>/src/environments/*',
 	],
+	coverageThreshold: {
+		global: {
+			lines: 100,
+			branches: 100,
+			functions: 100,
+		}
+	}
   };

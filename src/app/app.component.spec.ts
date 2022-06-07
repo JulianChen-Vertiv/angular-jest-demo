@@ -1,3 +1,4 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +18,8 @@ describe('AppComponent', () => {
         BrowserModule,
         AppRoutingModule
       ],
-      providers: [{provide: APP_BASE_HREF, useValue : '/' }]
+      providers: [{provide: APP_BASE_HREF, useValue : '/' }],
+      schemas: [ NO_ERRORS_SCHEMA ]
     }).compileComponents();
   });
 
