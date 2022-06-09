@@ -19,3 +19,9 @@ nav a:hover {
 nav a.active {
   background-color: black;
 }
+
+.login-header {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}

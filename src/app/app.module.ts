@@ -9,6 +9,7 @@ import { HeroesComponent } from './pages/heroes/heroes.component';
 import { MessagesComponent } from './pages/messages/messages.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './services/auth/auth.service';
 
 @NgModule({
   imports: [
@@ -22,6 +23,9 @@ import { AppRoutingModule } from './app-routing.module';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent
+  ],
+  providers: [
+    AuthService
   ],
   bootstrap: [ AppComponent ]
 })

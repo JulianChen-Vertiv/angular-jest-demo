@@ -14,7 +14,7 @@ export class AuthService {
   login(value: string) {
     this.isLogin = true;
     this.roleAs = value;
-    localStorage.setItem('STATE', 'true');
+    localStorage.setItem('LOGIN', 'true');
     localStorage.setItem('ROLE', this.roleAs);
     return of({ success: this.isLogin, role: this.roleAs });
   }
@@ -22,13 +22,13 @@ export class AuthService {
   logout() {
     this.isLogin = false;
     this.roleAs = '';
-    localStorage.setItem('STATE', 'false');
+    localStorage.setItem('LOGIN', 'false');
     localStorage.setItem('ROLE', '');
     return of({ success: this.isLogin, role: '' });
   }
 
   isLoggedIn() {
-    const loggedIn = localStorage.getItem('STATE');
+    const loggedIn = localStorage.getItem('LOGIN');
     this.isLogin = loggedIn == 'true';
     return this.isLogin;
   }

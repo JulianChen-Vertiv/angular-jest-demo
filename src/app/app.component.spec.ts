@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
 import { APP_BASE_HREF } from '@angular/common';
+import { AuthService } from './services/auth/auth.service';
 
 
 describe('AppComponent', () => {
@@ -18,7 +19,10 @@ describe('AppComponent', () => {
         BrowserModule,
         AppRoutingModule
       ],
-      providers: [{provide: APP_BASE_HREF, useValue : '/' }],
+      providers: [
+        AuthService,
+        {provide: APP_BASE_HREF, useValue : '/' }
+      ],
       schemas: [ NO_ERRORS_SCHEMA ]
     }).compileComponents();
   });
