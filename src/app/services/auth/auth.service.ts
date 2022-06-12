@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class AuthService {
 
   constructor() { }
 
-  login(value: string) {
+  login(value: string): Observable<{ success: boolean, role: string }> {
     this.isLogin = true;
     this.roleAs = value;
     localStorage.setItem('LOGIN', 'true');
@@ -19,7 +19,7 @@ export class AuthService {
     return of({ success: this.isLogin, role: this.roleAs });
   }
 
-  logout() {
+  logout(): Observable<{ success: boolean, role: string }> {
     this.isLogin = false;
     this.roleAs = '';
     localStorage.setItem('LOGIN', 'false');
@@ -27,13 +27,13 @@ export class AuthService {
     return of({ success: this.isLogin, role: '' });
   }
 
-  isLoggedIn() {
+  isLoggedIn(): boolean {
     const loggedIn = localStorage.getItem('LOGIN');
     this.isLogin = loggedIn == 'true';
     return this.isLogin;
   }
 
-  getRole() {
+  getRole(): string {
     this.roleAs = localStorage.getItem('ROLE') as string;
     return this.roleAs;
   }

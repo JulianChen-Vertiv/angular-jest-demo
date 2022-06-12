@@ -53,7 +53,6 @@ describe('AppComponent', () => {
     expect(compiled.querySelectorAll('a')?.item(0).textContent).toBe('Dashboard');
   });
 
-
   it('should have two nav links without login', () => {
     const navigateSpy = jest.spyOn(router, 'navigate');
 

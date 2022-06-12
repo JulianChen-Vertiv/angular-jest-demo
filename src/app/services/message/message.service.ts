@@ -8,7 +8,7 @@ export class MessageService {
     this.messages.push(message);
   }
 
-  clear() {
+  clear(): void {
     this.messages = [];
   }
 }
