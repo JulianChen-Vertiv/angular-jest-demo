@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
 describe('AuthGuard', () => {
   let guard: AuthGuard;
   let authService: AuthService;
-  let routerMock = {navigate: jest.fn()}
+  let routerMock = { navigate: jest.fn() }
 
   beforeEach(async () => {
     void await TestBed.configureTestingModule({
@@ -22,7 +22,6 @@ describe('AuthGuard', () => {
 
     guard = TestBed.inject(AuthGuard);
     authService = TestBed.inject(AuthService);
-    // router = TestBed.inject(Router);
   });
 
   it('should be created', () => {
@@ -53,6 +52,7 @@ describe('AuthGuard', () => {
     localStorage.setItem('LOGIN', 'false');
 
     expect(guard.canActivate(mockRouteSnapshot, {} as RouterStateSnapshot)).toBeFalsy();
+    expect(routerMock.navigate).toHaveBeenCalledWith(['/dashboard']);
 
     mockRouteSnapshot = {
       data: {
