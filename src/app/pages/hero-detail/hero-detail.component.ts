@@ -1,12 +1,16 @@
+import { FormsModule } from "@angular/forms";
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import { ActivatedRoute } from "@angular/router";
+import { Location, CommonModule } from "@angular/common";
 
 import { Hero } from '../../services/hero/hero';
 import { HeroService } from '../../services/hero/hero.service';
 
 @Component({
   selector: 'app-hero-detail',
+  standalone: true,
+  imports: [ FormsModule, CommonModule ],
+  providers: [ HeroService ],
   templateUrl: './hero-detail.component.html',
   styleUrls: [ './hero-detail.component.css' ]
 })

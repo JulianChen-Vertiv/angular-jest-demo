@@ -12,15 +12,12 @@ describe('HeroesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeroesComponent],
       providers: [
-        HeroService,
         {provide: APP_BASE_HREF, useValue: '/'}
       ],
       imports: [
-        BrowserModule,
         AppRoutingModule,
-        CommonModule
+        HeroesComponent
       ]
     }).compileComponents();
   });

@@ -15,9 +15,7 @@ describe('HeroDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeroDetailComponent],
       providers: [
-        HeroService,
         {
           provide: ActivatedRoute,
           useValue:
@@ -30,10 +28,7 @@ describe('HeroDetailComponent', () => {
         Location
       ],
       imports: [
-        BrowserModule,
-        AppRoutingModule,
-        CommonModule,
-        FormsModule
+        HeroDetailComponent
       ]
     }).compileComponents();
   });

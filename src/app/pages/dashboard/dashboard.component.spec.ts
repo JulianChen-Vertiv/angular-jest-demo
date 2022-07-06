@@ -1,6 +1,5 @@
-import { APP_BASE_HREF, CommonModule } from '@angular/common';
+import { APP_BASE_HREF } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../../app-routing.module';
 import { HeroService } from '../../services/hero/hero.service';
 import { DashboardComponent } from './dashboard.component';
@@ -12,15 +11,12 @@ describe('DashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DashboardComponent],
       providers: [
-        HeroService,
         {provide: APP_BASE_HREF, useValue: '/'}
       ],
       imports: [
-        BrowserModule,
-        AppRoutingModule,
-        CommonModule
+        DashboardComponent,
+        AppRoutingModule
       ]
     }).compileComponents();
   });
