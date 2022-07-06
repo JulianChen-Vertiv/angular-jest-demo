@@ -18,9 +18,6 @@ import { AuthService } from './services/auth/auth.service';
     AppComponent,
     MessagesComponent
   ],
-  providers: [
-    AuthService
-  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
