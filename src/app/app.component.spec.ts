@@ -79,4 +79,12 @@ describe('AppComponent', () => {
 
     expect(navigateSpy).toHaveBeenCalledWith(['/dashboard']);
   });
+
+  it('should navigate to detail', () => {
+    const navigateSpy = jest.spyOn(router, 'navigate');
+    component.login('ROLE_ADMIN');
+    router.navigate(['/detail', 13]);
+    
+    expect(navigateSpy).toHaveBeenCalledWith(['/detail', 13]);
+  });
 });
