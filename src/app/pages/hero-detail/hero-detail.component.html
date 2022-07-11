@@ -1,9 +1,46 @@
 <div *ngIf="hero">
   <h2>{{hero!.name | uppercase}} Details</h2>
   <div><span>id: </span>{{hero!.id}}</div>
-  <div>
+  <!-- <div>
     <label for="hero-name">Hero name: </label>
     <input id="hero-name" [(ngModel)]="hero!.name" placeholder="Hero name"/>
-  </div>
+  </div> -->
+
+  <form [formGroup]="personalForm">
+    <label for="name">Name: </label>
+    <input id="name" type="text" [formControl]="personalForm.controls.name" required>
+  
+    <div [formGroup]="personalForm.controls.address" required>
+      <h2>Address</h2>
+  
+      <label for="zip">Zip Code: </label>
+      <input id="zip"type="text" [formControl]="personalForm.controls.address.controls.zip">
+    </div>
+  
+    <div formArrayName="interest">
+      <h2>Aliases</h2>
+      <button type="button" (click)="addInterest()">+ Add another alias</button>
+  
+      <div *ngFor="let interest of personalForm.controls.interest.controls; let i=index">
+        <!-- The repeated interest template -->
+        <label for="interest-{{ i }}">Interests:</label>
+        <div class="interest-section">
+          <input id="interest-{{ i }}" type="text" [formControlName]="i">
+          <i class="material-icons delete_forever" (click)="deleteInterest(i)"></i>
+        </div>
+      </div>
+    </div>
+  
+  
+    <p>Complete the form to enable button.</p>
+    <button type="submit" [disabled]="!personalForm.valid">Submit</button>
+  </form>
+  
+  <hr>
+  
+  <p>Form Value: {{ personalForm.value | json }}</p>
+  
+  <p>Form Status: {{ personalForm.status }}</p>
+
   <button type="button" (click)="goBack()">go back</button>
 </div>

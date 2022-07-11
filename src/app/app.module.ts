@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { MessagesComponent } from './pages/messages/messages.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
