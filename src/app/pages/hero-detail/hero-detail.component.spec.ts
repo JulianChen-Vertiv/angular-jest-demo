@@ -1,3 +1,4 @@
+import { FormControl } from "@angular/forms";
 import { APP_BASE_HREF, CommonModule, Location } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
@@ -64,5 +65,21 @@ describe('HeroDetailComponent', () => {
     component.goBack();
 
     expect(locationSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it('should push form array value', () => {
+    component.addInterest();
+
+    expect(component.interest.length).toBe(2);
+  });
+
+  it('should delete form array index', () => {
+    component.deleteInterest(0);
+
+    expect(component.interest.length).toBe(0);
+  });
+
+  it('should get form address value', () => {
+    expect(component.address.value).toEqual({zip: ''});
   });
 })
